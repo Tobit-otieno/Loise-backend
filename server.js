@@ -25,7 +25,7 @@ connectDB();
 
 const app = express();
 
-app.post("/api/setup/superadmin", setupSuperAdmin);
+
 // --- Core middleware ---
 app.use(helmet());
 app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
@@ -69,7 +69,7 @@ app.use("/api/gallery", galleryRoutes);
 app.use("/api/inquiries", inquiryRoutes);
 app.use("/api/journal", journalRoutes);
 app.use("/api/dashboard", dashboardRoutes);
-
+app.post("/api/setup/superadmin", setupSuperAdmin);
 // --- Error handling (must be last) ---
 app.use(notFound);
 app.use(errorHandler);
