@@ -17,11 +17,15 @@ const galleryRoutes = require("./src/routes/galleryRoutes");
 const inquiryRoutes = require("./src/routes/inquiryRoutes");
 const journalRoutes = require("./src/routes/journalRoutes");
 const dashboardRoutes = require("./src/routes/dashboardRoutes");
+
+const { setupSuperAdmin } = require("./src/controllers/setupController");
+
  
 connectDB();
 
 const app = express();
 
+app.post("/api/setup/superadmin", setupSuperAdmin);
 // --- Core middleware ---
 app.use(helmet());
 app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));

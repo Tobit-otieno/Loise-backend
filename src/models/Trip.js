@@ -5,7 +5,7 @@ const itineraryDaySchema = new mongoose.Schema(
     day: { type: Number, required: true },
     title: { type: String, required: true, trim: true },
     description: { type: String, required: true },
-    meals: { type: String, default: "" }, // e.g. "Breakfast, Lunch, Dinner"
+    meals: { type: String, default: "" }, 
   },
   { _id: false }
 );
